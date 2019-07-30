@@ -21,7 +21,7 @@ food_stamps = []
 
 #Set up positions (x,y) of boxes that make up the snake
 snake = turtle.clone()
-snake.shape("square")
+snake.shape("circle")
 
 #Hide the turtle object (it's an arrow - we don't need to see it)
 turtle.hideturtle()
@@ -127,7 +127,8 @@ food = turtle.clone()
 food.shape("trash.gif") 
 
 #Locations of food
-food_pos = [(100,100), (-100,100), (-100,-100), (100,-100)]
+
+food_pos = []
 food_stamps = []
 
 # Write code that:
@@ -197,12 +198,14 @@ def move_snake():
     if snake.pos() in food_pos:
         
         food_index=food_pos.index(snake.pos()) #What does this do?
-        print (food_index)
-        ##food.clearstamp(food_stamps[food_index]) #Remove eaten food stamp
-        #food_pos.pop(food_index) #Remove eaten food position
-        #food_stamps.pop(food_index) #Remove eaten food stamp
+        food.clearstamp(food_stamps[food_index]) #Remove eaten food stamp
+        food_pos.pop(food_index) #Remove eaten food position
+        food_stamps.pop(food_index) #Remove eaten food stamp
         print("You have eaten the food!")
-        
+        new_stamp()
+    elif snake.pos() in pos_list[0:-1]:
+        quit ()
+            
         #move_snake()
     
     #HINT: This if statement may be useful for Part 8
@@ -259,6 +262,9 @@ move_snake()
 
 
 
+if snake.pos() in pos_list[0-1]:
+    quit ()
+    
 
 
 
