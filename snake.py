@@ -68,6 +68,7 @@ UP_EDGE =250
 DOWN_EDGE=-250
 RIGHT_EDGE =400
 LEFT_EDGE=-400
+TIME_STEP =100
 
 
 def up():
@@ -168,7 +169,7 @@ def make_food():
 
 
 def move_snake():
-    TIME_STEP = 100
+
     my_pos = snake.pos()
     x_pos = my_pos[0]
     y_pos = my_pos[1]
@@ -205,7 +206,7 @@ def move_snake():
         food_stamps.pop(food_index) #Remove eaten food stamp
         print("You have eaten the food!")
         new_stamp()
-        TIME_STEP = TIME_STEP -50
+        
         
     elif snake.pos() in pos_list[0:-1]:
         quit ()
