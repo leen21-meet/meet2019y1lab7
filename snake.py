@@ -11,7 +11,8 @@ turtle.penup()
 
 SQUARE_SIZE = 20
 START_LENGTH = 10
-TIME_STEP = 100
+
+turtle.bgcolor("purple")
 
 #Initialize lists
 pos_list = []
@@ -22,7 +23,7 @@ food_stamps = []
 #Set up positions (x,y) of boxes that make up the snake
 snake = turtle.clone()
 snake.shape("circle")
-
+snake.color ("yellow")
 #Hide the turtle object (it's an arrow - we don't need to see it)
 turtle.hideturtle()
 
@@ -48,6 +49,7 @@ for i in range (START_LENGTH):
     x_pos+=SQUARE_SIZE 
 
     snake.goto(x_pos,y_pos) #Move snake to new (x,y)
+    
    
     #Now draw the new snake part on the screen (hint, you have a 
     #function to do this
@@ -118,13 +120,13 @@ turtle.listen()
 
 #ADD THE LINES BELOW
 
-turtle.register_shape("trash.gif") #Add trash picture
+turtle.register_shape("2e71bd05ffcf3137ff6a71b7a4d2580c.gif") #Add trash picture
                       # Make sure you have downloaded this shape 
                       # from the Google Drive folder and saved it
                       # in the same folder as this Python script
 
 food = turtle.clone()
-food.shape("trash.gif") 
+food.shape("2e71bd05ffcf3137ff6a71b7a4d2580c.gif") 
 
 #Locations of food
 
@@ -166,7 +168,7 @@ def make_food():
 
 
 def move_snake():
-    print (food_stamps)
+    TIME_STEP = 100
     my_pos = snake.pos()
     x_pos = my_pos[0]
     y_pos = my_pos[1]
@@ -203,6 +205,8 @@ def move_snake():
         food_stamps.pop(food_index) #Remove eaten food stamp
         print("You have eaten the food!")
         new_stamp()
+        TIME_STEP = TIME_STEP -50
+        
     elif snake.pos() in pos_list[0:-1]:
         quit ()
             
@@ -249,8 +253,8 @@ def move_snake():
          quit()
 
     if len(food_stamps) <= 6 :
-                make_food()
-
+         make_food()
+    print (TIME_STEP)
 
     
 
@@ -262,8 +266,6 @@ move_snake()
 
 
 
-if snake.pos() in pos_list[0-1]:
-    quit ()
     
 
 
