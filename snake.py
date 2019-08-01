@@ -173,6 +173,7 @@ def move_snake():
     my_pos = snake.pos()
     x_pos = my_pos[0]
     y_pos = my_pos[1]
+    global TIME_STEP
     
     #If snake.direction is up, then we want the snake to change
     #it’s y position by SQUARE_SIZE
@@ -205,6 +206,7 @@ def move_snake():
         food_pos.pop(food_index) #Remove eaten food position
         food_stamps.pop(food_index) #Remove eaten food stamp
         print("You have eaten the food!")
+        TIME_STEP = TIME_STEP -1
         new_stamp()
         
         
